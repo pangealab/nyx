@@ -47,4 +47,4 @@ jobs:
         echo $NOW_API
         curl -X POST "Content-Type: application/json" $NOW_API \
         --user ${{ secrets.NOW_USERNAME }}:${{ secrets.NOW_PASSWORD }} \
-        -d @registration/${{ github.event.inputs.serviceMap }}.json
+        -d ./registration/discovery.json
