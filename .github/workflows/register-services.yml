@@ -36,9 +36,10 @@ jobs:
       uses: actions/checkout@v2
       
     # Register Services
-    - name: Github Action for curl
-      uses: wei/curl@v1.1.1
-      # env:
-      #   NOW_API: "$(nowServer)/api/sn_sro/service_registration/builder"
-      with:
-        args: -X POST https://httpbin.org/post
+    - name: Register Services
+      run : |
+        curl -X POST https://httpbin.org/post
+
+    # ${{ github.event.inputs.logLevel }}
+    # curl -X POST -H "Content-Type: application/json" "$NOW_API" --user $(nowUserName):$(nowPassword) -d @registration/$(serviceMap).json | jq .
+
