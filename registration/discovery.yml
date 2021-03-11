@@ -1,0 +1,30 @@
+---
+services:
+- "$class": Business Service
+  name: Discovery Plus
+  description: Discovery Plus
+- name: discostreaming
+  description: Streaming Content Service
+- name: discoplus
+  description: Discovery Plus
+- name: discocatalog
+  description: Discovery Catalog Service
+- name: discoratings
+  description: Discovery Ratings Service
+- name: discoreviews
+  description: Discovery Reviews Service
+- name: discosubscriptions
+  description: Discovery Subscriptions Service
+relationships:
+- parent: Discovery Plus
+  child: discostreaming
+- parent: discostreaming
+  child: discoplus
+- parent: discoplus
+  child: discocatalog
+- parent: discoplus
+  child: discoratings
+- parent: discoplus
+  child: discoreviews
+- parent: discoplus
+  child: discosubscriptions
