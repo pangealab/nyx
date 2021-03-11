@@ -45,6 +45,6 @@ jobs:
         NOW_API: ${{ github.event.inputs.nowServer }}/api/sn_sro/service_registration/builder
       run : |
         echo $NOW_API
-        curl -X POST "Content-Type: application/json" $NOW_API \
+        curl -X POST -H "Content-Type: application/json" $NOW_API \
         --user ${{ secrets.NOW_USERNAME }}:${{ secrets.NOW_PASSWORD }} \
-        -d ./registration/discovery.json
+        -d @registration/${{ github.event.inputs.serviceMap }}.json
