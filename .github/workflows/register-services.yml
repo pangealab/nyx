@@ -13,7 +13,12 @@ env:
 #   pull_request:
 #     branches: [ master ]
 on: 
-  [workflow_dispatch]
+  workflow_dispatch:
+    inputs:
+      nowServer:
+        description: 'NOW Server'     
+        required: true
+        default: 'https://aiopsstage02.service-now.com/api/sn_sro/service_registration/builder'
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -33,5 +38,7 @@ jobs:
     # Register Services
     - name: Github Action for curl
       uses: wei/curl@v1.1.1
+      # env:
+      #   NOW_API: "$(nowServer)/api/sn_sro/service_registration/builder"
       with:
         args: -X POST https://httpbin.org/post
