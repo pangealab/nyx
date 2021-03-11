@@ -29,3 +29,9 @@ jobs:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - name: Checkout Git Repo
       uses: actions/checkout@v2
+      
+    # Register Services
+    - name: Github Action for curl
+      uses: wei/curl@v1.1.1
+      with:
+        args: -X POST https://httpbin.org/post
