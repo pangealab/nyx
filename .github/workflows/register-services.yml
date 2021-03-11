@@ -37,7 +37,10 @@ jobs:
       
     # Register Services
     - name: Register Services
+      env: 
+        NOW_API: ${{ github.event.inputs.nowServer }}/api/sn_sro/service_registration/builder
       run : |
+        echo "$NOW_API"
         curl -X POST https://httpbin.org/post
 
     # ${{ github.event.inputs.logLevel }}
