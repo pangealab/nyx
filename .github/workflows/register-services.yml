@@ -19,6 +19,10 @@ on:
         description: 'NOW Server'     
         required: true
         default: 'https://aiopsstage02.service-now.com'
+      serviceMap:
+        description: 'Service Map'
+        required: true
+        default: 'discovery'
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -43,4 +47,4 @@ jobs:
         echo $NOW_API
         curl -X POST "Content-Type: application/json" $NOW_API \
         --user ${{ secrets.NOW_USERNAME }}:${{ secrets.NOW_PASSWORD }} \
-        -d @registration/$(serviceMap).json
+        -d @registration/${{ github.event.inputs.serviceMap }}.json
